@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título del Proyecto</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1, h2 { color: #333; }
+        .tab-container { border-bottom: 1px solid #ccc; margin-bottom: 20px; }
+        .tab-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-right: 5px;
+            background-color: #eee;
+            color: #333;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .tab-button.active { background-color: #ddd; }
+        .tab-content { border: 1px solid #ccc; padding: 15px; display: none; }
+        .tab-content.active { display: block; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Título del Proyecto</h1>
+        <div class="tab-container">
+            <a href="#introduccion" class="tab-button active">Introducción</a>
+            <a href="#descripcion" class="tab-button">Descripción</a>
+            <a href="#elementos" class="tab-button">Elementos</a>
+            <a href="#participantes" class="tab-button">Participantes</a>
+            <a href="#retos" class="tab-button">Retos</a>
+            <a href="#proceso" class="tab-button">Proceso</a>
+            <a href="#resultados" class="tab-button">Resultados</a>
+            <a href="#conclusion" class="tab-button">Conclusión</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="introduccion" class="tab-content active">
+            <h2>Introducción</h2>
+            <p>Contenido de la sección de introducción del proyecto.</p>
+        </section>
+
+        <section id="descripcion" class="tab-content">
+            <h2>Descripción del Proyecto</h2>
+            <p>Contenido de la sección de descripción del proyecto.</p>
+        </section>
+
+        <section id="elementos" class="tab-content">
+            <h2>Elementos / Componentes</h2>
+            <p>Listado de los elementos involucrados.</p>
+            <ul>
+                <li>Elemento 1</li>
+                <li>Elemento 2</li>
+            </ul>
+        </section>
+
+        <section id="participantes" class="tab-content">
+            <h2>Participantes</h2>
+            <p>Nombres de los alumnos o roles.</p>
+            <ul>
+                <li>Alumno 1 (Rol)</li>
+                <li>Alumno 2 (Rol)</li>
+            </ul>
+        </section>
+
+        <section id="retos" class="tab-content">
+            <h2>Retos del Proyecto</h2>
+            <p>Descripción de los desafíos.</p>
+        </section>
+
+        <section id="proceso" class="tab-content">
+            <h2>Proceso de Desarrollo</h2>
+            <p>Pasos seguidos.</p>
+            <ol>
+                <li>Paso 1</li>
+                <li>Paso 2</li>
+            </ol>
+        </section>
+
+        <section id="resultados" class="tab-content">
+            <h2>Resultados Obtenidos</h2>
+            <p>Descripción de los logros.</p>
+        </section>
+
+        <section id="conclusion" class="tab-content">
+            <h2>Conclusión</h2>
+            <p>Reflexiones finales.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 - Nombre del Grupo/Alumno</p>
+    </footer>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = event.target.getAttribute('href').substring(1);
+
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                event.target.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
